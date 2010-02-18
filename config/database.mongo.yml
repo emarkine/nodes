@@ -12,6 +12,4 @@ development:
 production:
   <<: *defaults
   host: gryzl.com
-  username: eugene
-  password: katja1
   database: nodes_prod
