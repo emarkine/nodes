@@ -3,7 +3,4 @@
 log/*
 tmp/*
 tmp/**/*
-coverage/*
-coverage/**/*
-.svn/**/*
-.idea/**/*
+.idea/*
