@@ -3,7 +3,6 @@
   <component name="ChangeListManager" verified="true">
     <list readonly="true" id="dedb7108-9d28-4c58-a100-59e6a09ce878" name="Default" comment="" />
     <list default="true" id="a2523d42-65db-404f-be6e-5d959624e6a7" name="e" comment="2010-02-18">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nodes.iws" />
