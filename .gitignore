@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+log/*
+tmp/*
+tmp/**/*
+coverage/*
+coverage/**/*
+.svn/**/*

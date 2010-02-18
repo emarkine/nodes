@@ -1,0 +1,17 @@
+defaults: &defaults
+  host: localhost
+  slave_one:
+    port: 27018
+  slave_two:
+    port: 27019
+
+development:
+  <<: *defaults
+  database: nodes_dev
+
+production:
+  <<: *defaults
+  host: gryzl.com
+  username: eugene
+  password: katja1
+  database: nodes_prod
