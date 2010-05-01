@@ -1,0 +1,6 @@
+<h1><%= link_to  @node.name, :action => 'edit', :id => @node %></h1>
+<hr />
+ <%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
+<hr />
+<%= link_to "Nodes", :action => 'index' %>
+

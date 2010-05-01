@@ -1,0 +1,8 @@
+<% if @src %>
+    <h1>Clone <%= link_to @src.name, :action => 'show', :id => @src %></h1>
+<% else %>
+    <h1>New Node</h1>
+<% end %>
+<%= render :partial => 'form' %>
+<hr />
+<%= link_to "Nodes", :action => 'index' %>

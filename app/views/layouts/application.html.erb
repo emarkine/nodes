@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+ <title>Nodes</title>
+ <!--%= javascript_include_tag :defaults %-->
+ <%= javascript_include_tag 'jquery/jquery' %>
+ <%= javascript_include_tag 'jquery/ui.core' %>
+ <%= javascript_include_tag 'jquery/ui.datepicker' %>
+ <%= javascript_include_tag 'jquery/jquery.form' %>
+ <%= javascript_include_tag 'jquery/jquery.metadata' %>
+ <%= javascript_include_tag 'jquery/jquery.tablesorter' %>
+ <%= javascript_include_tag 'jquery/jquery.dxCombobox' %>
+ <%#= javascript_include_tag 'jquery/jquery.uploadProgress' %>
+ <%#= javascript_include_tag 'jquery/i18n/jquery-ui-i18n' %>
+ <%= javascript_include_tag 'jquery/jrails' %>
+ <%= javascript_include_tag 'utils' %>
+ <%= javascript_include_tag 'objects' %>
+ <%= javascript_include_tag 'application' %>
+
+ <%= stylesheet_link_tag 'jquery/ui.all' %>
+ <%= stylesheet_link_tag 'jquery/sorter-blue' %>
+ <%#= stylesheet_link_tag 'jquery/sorter-green' %>
+ <%= stylesheet_link_tag 'style' %>
+
+</head>
+<body>
+<div id="head">
+ <div id="filter">
+  <%= render :partial => "layouts/filter" %>
+ </div>
+ <div id="menu">
+  <%= render :partial => "layouts/menu" %>
+ </div>
+ <div id="search">
+  <%= render :partial => "layouts/search" %>
+ </div>
+</div>
+
+<div id="body">
+<hr/>
+<p>
+ <span id="notice"><%= flash[:notice] %></span>
+</p>
+
+<p>
+ <span id="error"><%= flash[:error] %></span>
+</p>
+
+<div id="content">
+<%= yield %>
+</div>
+
+</div>
+    
+</body>
+</html>

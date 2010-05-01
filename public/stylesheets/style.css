@@ -1,0 +1,175 @@
+html {
+    padding: 0;
+    color: #333;
+    font-size: 10pt;
+}
+
+table, td {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 10pt;
+    border-collapse: collapse;
+}
+
+body, p, ol, ul, td {
+    font-family: verdana, sans-serif;
+    font-size: 10pt;
+    background-color: #fff;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #690;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: #069;
+}
+
+.right {
+    text-align: right;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    color: #069;
+    text-decoration: none;
+}
+
+h1 a {
+    color: #690;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p.notice {
+    color: green;
+}
+
+a.name {
+    background: #ddd;
+    color: #333;
+}
+
+a.tag {
+    color: #fff;
+    background: #767676;
+}
+
+div.node a.tag:hover {
+    background: #999;
+}
+
+.fieldWithErrors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+div#head {
+    margin-bottom: 5px;
+    width: 100%;
+    float: left;
+}
+
+div#filter {
+    float: left;
+}
+
+div#menu {
+    margin-left: 10px;
+    float: left;
+}
+
+div#menu a {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+div#search {
+    float: right;
+}
+
+div#body {
+    clear: both;
+}
+
+span#notice {
+    color: green;
+}
+
+span#error {
+    color: red;
+}
+
+div.node {
+    float: left;
+    clear: both;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+div.node a {
+    float: left;
+    display: block;
+    border: 1px solid #767676;
+    height: 15px;
+    margin-right: 3px;
+    padding: 0px 5px 2px 5px;
+}
+
+div.node a:hover {
+    text-decoration: none;
+    background: white;
+    color: #333;
+}
+
+
+/*
+    background: #999;
+    background: #909;
+    background: #099;
+    background: #990;
+*/

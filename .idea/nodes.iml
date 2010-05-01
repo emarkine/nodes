@@ -12,7 +12,7 @@
   <component name="GemRequirementsHolder" version="2">
     <requirement>
       <requirement>
-        <dependency name="mongoid" version="1.2.0" bound="EQUAL" />
+        <dependency name="mongoid" version="0" bound="GREATER_OR_EQUAL" />
       </requirement>
       <source from="config/environment.rb" />
     </requirement>
@@ -38,10 +38,10 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/actionmailer-2.3.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] durran-validatable (v2.0.1, /usr/local/lib/ruby/gems/1.8/gems/durran-validatable-2.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mongo (v0.18.3, /usr/local/lib/ruby/gems/1.8/gems/mongo-0.18.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mongoid (v1.2.0, /usr/local/lib/ruby/gems/1.8/gems/mongoid-1.2.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rack (v1.0.1, /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] will_paginate (v2.3.12, /usr/local/lib/ruby/gems/1.8/gems/will_paginate-2.3.12)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] mongo (v0.20.1, /usr/local/lib/ruby/gems/1.8/gems/mongo-0.20.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bson (v0.20.1, /usr/local/lib/ruby/gems/1.8/gems/bson-0.20.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] mongoid (v1.2.14, /usr/local/lib/ruby/gems/1.8/gems/mongoid-1.2.14)" level="application" />
   </component>
 </module>
 
