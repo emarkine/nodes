@@ -5,4 +5,6 @@ class Node
 	validates_uniqueness_of :name
 	
   field :name
+	embedded :tags
+
 end
