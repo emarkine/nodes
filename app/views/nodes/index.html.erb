@@ -1,0 +1,7 @@
+<h1><%= link_to "Nodes", :action => 'new' %></h1>
+
+<% for n in @nodes %>
+    <div class="node">
+     <%= link_to n.name, :action => 'show', :id => n %>
+    </div>
+<% end %>
