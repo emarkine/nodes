@@ -8,12 +8,12 @@ module ActiveTag
 
   class << self
 
-    def conf
+    def config
       config = ActiveTag::Config.instance
       block_given? ? yield(config) : config
     end
 
-#     alias :config :configure
+     alias :config :configure
   end
 
    ActiveTag::Config.public_instance_methods(false).each do |name|
