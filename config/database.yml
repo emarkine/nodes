@@ -1,0 +1,12 @@
+development:
+  adapter: mysql
+  database: nodes_development
+
+test:
+  adapter: mysql
+  database: nodes_test
+
+production:
+  adapter: mysql
+  database: nodes_production
+

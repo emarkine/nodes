@@ -41,9 +41,9 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 
 	# settings for mongo
-	config.frameworks -= [:active_record]
+    config.frameworks -= [:active_record]
 #	config.gem 'mongo_mapper'
-	config.gem "mongoid", :lib => "mongoid" #, :version => "1.2.0"
+    config.gem "mongoid", :lib => "mongoid" #, :version => "1.2.0"
 
 	
 end

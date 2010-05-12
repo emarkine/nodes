@@ -1,0 +1,14 @@
+<% if @src %>
+    <h1>Clone <%= show_link @src %></h1>
+<% else %>
+    <h1>New <%= @model.humanize %></h1>
+<% end %>
+<%= render :partial => 'objects/form',
+           :object => @obj,
+           :locals => {
+                   :button => "Create",
+                   :attrs => @attrs }
+%>
+<hr/>
+<%= index(@model) %>
+

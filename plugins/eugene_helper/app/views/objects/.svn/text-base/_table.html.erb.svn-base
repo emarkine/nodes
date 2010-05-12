@@ -1,0 +1,22 @@
+<table class="view tablesorter">
+ <thead>
+ <tr>
+  <% attrs.each do |a| %>
+      <th><%= a.label %></th>
+  <% end %>
+ </tr>
+ </thead>
+ <tbody>
+ <% objs.each do |o| %>
+     <tr>
+      <td><%= show_link o, attrs[0].name %></td>
+      <% 1.upto(attrs.size-1) do |i| %>
+          <td>
+           <%= view_field(o, attrs[i].name, attrs[i].type) %>
+          </td>
+      <% end %>
+     </tr>
+ <% end %>
+ </tbody>
+</table>
+

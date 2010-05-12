@@ -1,0 +1,15 @@
+<% f = upload %>
+<table>
+  <tr>
+   <td valign="top">
+    <label><%= attr.label %></label>&nbsp;
+   </td>
+   <td valign="top">
+    <span id="file_name"><%= value = @obj.send attr.name %></span>&nbsp;
+   </td>
+   <td><img id="indicator" src="/images/indicator.gif"  style="display: none;"/>&nbsp;</td>
+   <td valign="bottom">
+    <%= f.file_field attr.name, :class => 'file' %>
+   </td>
+  </tr>
+ </table>
