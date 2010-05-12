@@ -8,7 +8,7 @@ module ActiveTag
 
   class << self
 
-    def config
+    def configure
       config = ActiveTag::Config.instance
       block_given? ? yield(config) : config
     end
