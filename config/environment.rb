@@ -43,7 +43,7 @@ Rails::Initializer.run do |config|
 	# settings for mongo
     config.frameworks -= [:active_record]
 #	config.gem 'mongo_mapper'
-    config.gem "mongoid", :lib => "mongoid" #, :version => "1.2.0"
+#    config.gem "mongoid", :lib => "mongoid" #, :version => "1.2.0"
 
 	
 end
