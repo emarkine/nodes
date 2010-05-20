@@ -54,17 +54,17 @@ module ActiveTag
 			def all
 				list = []
 				coll.find.each do |row|
-					  list << Node.new(row)
+					  list << self.new(row)
 				end
 				list
 			end
 
 			def first
-				Node.new(coll.find_one())
+				self.new(coll.find_one())
 			end
 
 			def last
-				Node.new(coll.find.to_a[-1])
+				self.new(coll.find.to_a[-1])
 			end
 
 		end
@@ -83,9 +83,21 @@ module ActiveTag
 			alias :_id= :id=
 
 			def save
-				Node.coll.save(self)
+				self.class.coll.save(self)
 			end
 
+			# Used for allowing accessor methods for dynamic attributes.
+			def method_missing(name, * args)
+				attr = name.to_s
+				if attr.writer?
+					# "args.size > 1" allows to simulate 1.8 behavior of "*args"
+					self[attr.reader] = (args.size > 1) ? args : args.first
+				else
+					return super unless has_key?(attr.reader)
+					self[attr.reader]
+				end
+			end
+			
 
 		end
 
