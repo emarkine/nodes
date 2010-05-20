@@ -86,18 +86,6 @@ module ActiveTag
 				self.class.coll.save(self)
 			end
 
-			# Used for allowing accessor methods for dynamic attributes.
-			def method_missing(name, * args)
-				attr = name.to_s
-				if attr.writer?
-					# "args.size > 1" allows to simulate 1.8 behavior of "*args"
-					self[attr.reader] = (args.size > 1) ? args : args.first
-				else
-					return super unless has_key?(attr.reader)
-					self[attr.reader]
-				end
-			end
-			
 
 		end
 

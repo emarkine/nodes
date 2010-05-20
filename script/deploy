@@ -1,1 +1,1 @@
-rsync -e ssh --progress -lzuogthvr --compress-level=9 --delete-after --exclude=.git --exclude=.gitignore --exclude=.idea . root@dataclone.eu:/var/app/nodes/
+rsync -e ssh --progress -lzuogthvr --compress-level=9 --delete-after --exclude=log --exclude=.git --exclude=.gitignore --exclude=.idea . root@dataclone.eu:/var/app/nodes/

@@ -41,4 +41,11 @@ class NodeTest < ActiveSupport::TestCase
 		assert_equal(n[2], { 'b' => 2 } )
 	end
 
+	test "attr writer" do
+		n = Node.new
+		n.a = 1
+		puts "attr writer: #{n}"
+		assert_equal(n[0], { 'a' => 1 } )
+	end
+
 end
