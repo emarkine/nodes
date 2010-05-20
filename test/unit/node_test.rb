@@ -9,21 +9,6 @@ class NodeTest < ActiveSupport::TestCase
 		assert n.size
   end
 
-	test "constructor" do
-		n = Node.new( { 'a' => 1 } )
-		puts "constructor: #{n}"
-		assert_equal(n, { 'a' => 1 } )
-	end
-
-	test "plus" do
-		n = Node.new( { 'a' => 1 } )
-		n += { 'b' => 2 }
-		puts "plus: #{n}"
-		assert_equal(n[0], { 'a' => 1 } )
-		assert_equal(n[1], { 'b' => 2 } )
-	end
-
-
 	test "add in begin" do
 		n = Node.new( { 'a' => 1 } )
 		n.add( { 'b' => 2 }, 0 )
@@ -46,6 +31,29 @@ class NodeTest < ActiveSupport::TestCase
 		n.a = 1
 		puts "attr writer: #{n}"
 		assert_equal(n[0], { 'a' => 1 } )
+	end
+
+	test "constructor" do
+		n = Node.new( { 'a' => 1 } )
+		puts "constructor: #{n}"
+		assert_equal(n, { 'a' => 1 } )
+	end
+
+	test "plus" do
+		n = Node.new( { 'a' => 1 } )
+		n += { 'b' => 2 }
+		puts "plus: #{n}"
+		assert_equal(n[0], { 'a' => 1 } )
+		assert_equal(n[1], { 'b' => 2 } )
+	end
+
+	test "plus two" do
+		n = Node.new( { 'a' => 1 } )
+		n += { 'b' => 2, 'c' => 3 }
+		puts "plus two: #{n}"
+		assert_equal(n[0], { 'a' => 1 } )
+		assert_equal(n[1], { 'b' => 2 } )
+		assert_equal(n[2], { 'c' => 3 } )
 	end
 
 end
