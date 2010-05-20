@@ -1,4 +1,4 @@
-class Node
+class Node < OrderedHash
   include ActiveTag::Document
 
 #  validates_presence_of :name
@@ -9,5 +9,14 @@ class Node
 
 
  # embedded :tags
+
+	def save
+		  self
+	end
+
+	def id
+		self["_id"]
+	end
+
 
 end
