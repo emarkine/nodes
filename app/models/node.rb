@@ -3,6 +3,9 @@ require "activetag/store"
 class Node < OrderedHash
 	include ActiveTag::Store
 
+	def initialize(hash=nil)
+		add(hash)
+	end
 
 	# Used for allowing accessor methods for dynamic attributes.
 	def method_missing(name, * args)
@@ -21,18 +24,32 @@ class Node < OrderedHash
 		{@ordered_keys[key], self[@ordered_keys[key]]}
 	end
 
-	def []=(num, hash)
-		return super(num, hash) if num.class != Fixnum
-		@ordered_keys[num] = hash.keys[0]
-		self[hash.keys[0]] = hash.values[0]
-	end
-
-	def add(hash)
-		hash.each do |k, v|
-			self[k] = v
+	def []=(pos, hash)
+		return super(pos, hash) if pos.class != Fixnum
+		old_key = @ordered_keys[pos]
+		if old_key
+			delete old_key
+			key = hash.keys[0]
+			self[key] = hash.values[0]
+			(size-1).downto(pos) do |i|
+				@ordered_keys[i] = @ordered_keys[i-1]
+			end
+			@ordered_keys[pos] = key
 		end
 	end
 
+	def add(hash)
+		if hash.kind_of? Hash
+			hash.each do |k, v|
+				self[k] = v
+			end
+		end
+	end
+
+	def set(hash)
+		clear
+		add(hash)
+	end
 
 
 end

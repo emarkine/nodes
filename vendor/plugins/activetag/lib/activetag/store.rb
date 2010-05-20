@@ -51,29 +51,41 @@ module ActiveTag
 				@_type ||= (self.subclasses + [self.name])
 			end
 
-			
-			
+			def all
+				list = []
+				coll.find.each do |row|
+					  list << Node.new(row)
+				end
+				list
+			end
+
+			def first
+				Node.new(coll.find_one())
+			end
+
+			def last
+				Node.new(coll.find.to_a[-1])
+			end
 
 		end
 
 		module InstanceMethods
 
 			def id
-				 self[:_id]
-			 end
-
-			 def id=(new_id)
-				 self[:_id] = new_id
-			 end
-
-			 alias :_id :id
-			 alias :_id= :id=
-
-			def save
-				Node.coll.insert(self);
+				self[:_id]
 			end
 
-	 
+			def id=(new_id)
+				self[:_id] = new_id
+			end
+
+			alias :_id :id
+			alias :_id= :id=
+
+			def save
+				Node.coll.save(self)
+			end
+
 
 		end
 
