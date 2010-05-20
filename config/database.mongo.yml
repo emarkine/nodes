@@ -16,6 +16,10 @@ development:
   <<: *defaults
   database: nodes_dev
 
+test:
+  <<: *defaults
+  database: nodes_dev
+
 production:
   <<: *defaults
   host: dataclone.eu

@@ -1,1 +1,2 @@
-require  'activetag' 
+require  'activetag'
+

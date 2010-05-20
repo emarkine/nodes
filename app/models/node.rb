@@ -26,22 +26,22 @@ class Node < Hash
 		end
 	end
 
+
 	# вставка хэша в произвольную позицию (по умолчанию в конец)
 	def add(hash, pos=nil)
 		if hash.kind_of? Hash
+			pos = size unless pos
 			t = self.clone
 			clear
-			0.upto(t.size-1) do |i|
-				if i == pos
-					hash.each do |k, v|
-						self[k] = v
-					end
-				else
-					self[t.keys[i]] ||= t.values[i]
-				end
+			0.upto(t.size) do |i|
+				hash.each { |k, v| self[k] = v } if i == pos
+				self[t.keys[i]] ||= t.values[i] if i < t.size
 			end
 		end
+		self
 	end
+
+	alias + add
 
 	def set(hash)
 		clear

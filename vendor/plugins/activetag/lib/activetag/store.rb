@@ -6,7 +6,7 @@ module ActiveTag
 				extend ClassMethods
 
 				cattr_accessor :_collection, :collection_name, :indexed
-				self.collection_name = self.name.collectionize
+				self.collection_name = self.name.downcase.pluralize
 				self.indexed = false
 
 				delegate :collection, :db, :to => "self.class"
