@@ -1,9 +1,0 @@
-<h1><%= delete_link @obj %></h1>
-<%= render :partial => 'objects/form',
-           :object => @obj,
-           :locals => {
-                   :button => "Update",
-                   :attrs => @attrs }
-%>
-<hr />
-<%= show_link @obj %>
