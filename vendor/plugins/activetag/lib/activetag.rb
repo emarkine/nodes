@@ -1,7 +1,8 @@
-require "rubygems"
 gem "mongo"
 
 require "mongo"
+
+require "activetag/config"
 
 
 module ActiveTag

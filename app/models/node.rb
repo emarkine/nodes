@@ -1,13 +1,85 @@
-class Node
-  include ActiveTag::Document
+require "activetag/store"
 
-#  validates_presence_of :name
-#  validates_uniqueness_of :name
+class Node < Hash
+	include ActiveTag::Store
 
-#  field :name
+	def initialize(hash=nil)
+		add(hash)
+	end
+
+	# Used for allowing accessor methods for dynamic attributes.
+	def method_missing(name, * args)
+		attr = name.to_s
+		if attr.include?("=")
+			# "args.size > 1" allows to simulate 1.8 behavior of "*args"
+			self[attr.reader] = (args.size > 1) ? args : args.first
+		else
+			return super unless has_key?(attr.reader)
+			self[attr.reader]
+		end
+	end
+
+	
+
+	def [](pos)
+		return super(pos) if pos.class != Fixnum
+		{keys[pos] => values[pos]}
+	end
+
+	def []=(pos, hash)
+		return super(pos, hash) if pos.class != Fixnum
+		t = self.clone
+		clear
+		0.upto(t.size-1) do |i|
+			if i == pos
+				self[hash.keys[0]] = hash.values[0]
+			else
+				self[t.keys[i]] ||= t.values[i]
+			end
+		end
+	end
 
 
+	# вставка хэша в произвольную позицию (по умолчанию в конец)
+	def add(hash, pos=nil)
+		if hash.kind_of? Hash
+			pos = size unless pos
+			t = self.clone
+			clear
+			0.upto(t.size) do |i|
+				hash.each { |k, v| self[k] = v } if i == pos
+				self[t.keys[i]] ||= t.values[i] if i < t.size
+			end
+		end
+		self
+	end
 
- # embedded :tags
+	alias + add
+
+	def set(hash)
+		clear
+		add(hash)
+	end
+
 
 end
+
+
+#def [](key)
+#	return super(key) if key.class != Fixnum
+#	{@ordered_keys[key], self[@ordered_keys[key]]}
+#end
+#
+#def []=(pos, hash)
+#	return super(pos, hash) if pos.class != Fixnum
+#	old_key = @ordered_keys[pos]
+#	if old_key
+#		delete old_key
+#		key = hash.keys[0]
+#		self[key] = hash.values[0]
+#		(size-1).downto(pos) do |i|
+#			@ordered_keys[i] = @ordered_keys[i-1]
+#		end
+#		@ordered_keys[pos] = key
+#	end
+#end

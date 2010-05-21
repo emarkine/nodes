@@ -14,8 +14,13 @@
       <requirement>
         <dependency name="mongo" version="0" bound="GREATER_OR_EQUAL" git="false" />
       </requirement>
-      <source from="lib/activetag.rb" />
-      <source from="lib/ext/activetag.rb" />
+      <source from="vendor/plugins/activetag/lib/activetag.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="mongoid" version="0" bound="GREATER_OR_EQUAL" git="false" />
+      </requirement>
+      <source from="config/environment.rb" />
     </requirement>
     <requirement>
       <requirement>
@@ -29,6 +34,12 @@
       </requirement>
       <source from="config/boot.rb" />
     </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="test-unit" version="0" bound="GREATER_OR_EQUAL" git="false" />
+      </requirement>
+      <source manual="true" />
+    </requirement>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
@@ -37,20 +48,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/activeresource-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] actionpack (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/actionmailer-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v2.3.5, /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mongo (v1.0.1, /usr/local/lib/ruby/gems/1.8/gems/mongo-1.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] bson (v1.0.1, /usr/local/lib/ruby/gems/1.8/gems/bson-1.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mysql (v2.8.1, /usr/local/lib/ruby/gems/1.8/gems/mysql-2.8.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rack (v1.0.1, /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] durran-validatable (v2.0.1, /usr/local/lib/ruby/gems/1.8/gems/durran-validatable-2.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] will_paginate (v2.3.12, /usr/local/lib/ruby/gems/1.8/gems/will_paginate-2.3.12)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mongoid (v1.2.14, /usr/local/lib/ruby/gems/1.8/gems/mongoid-1.2.14)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.3, /usr/local/lib/ruby/gems/1.8/gems/rake-0.8.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] actionpack (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/actionmailer-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.7, /usr/local/lib/ruby/gems/1.9.1/gems/rake-0.8.7)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/activeresource-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v2.3.5, /usr/local/lib/ruby/gems/1.9.1/gems/rails-2.3.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] test-unit (v2.0.7, /usr/local/lib/ruby/gems/1.9.1/gems/test-unit-2.0.7)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bson (v1.0.1, /usr/local/lib/ruby/gems/1.9.1/gems/bson-1.0.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] mongo (v1.0.1, /usr/local/lib/ruby/gems/1.9.1/gems/mongo-1.0.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] mongoid (v1.9.0, /usr/local/lib/ruby/gems/1.9.1/gems/mongoid-1.9.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] durran-validatable (v2.0.1, /usr/local/lib/ruby/gems/1.9.1/gems/durran-validatable-2.0.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] will_paginate (v2.3.12, /usr/local/lib/ruby/gems/1.9.1/gems/will_paginate-2.3.12)" level="application" />
   </component>
 </module>
 
