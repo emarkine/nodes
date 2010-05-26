@@ -2,6 +2,6 @@
 
 <% for n in @nodes %>
     <div class="node">
-     <%= link_to n.name, :action => 'show', :id => n %>
+     <%= link_to "node[#{n.id}]", :action => 'show', :id => n.id %>
     </div>
 <% end %>

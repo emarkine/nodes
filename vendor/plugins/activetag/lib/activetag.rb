@@ -3,6 +3,7 @@ gem "mongo"
 require "mongo"
 
 require "activetag/config"
+require "activetag/pk_factory"
 
 
 module ActiveTag

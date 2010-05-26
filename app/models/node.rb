@@ -7,7 +7,7 @@ class Node < Hash
 		add(hash)
 	end
 
-	# Used for allowing accessor methods for dynamic attributes.
+	# если в хэше есть ключ с такими именем, то возвращается его значение (или ему присваивается значение)
 	def method_missing(name, * args)
 		attr = name.to_s
 		if attr.include?("=")
@@ -19,13 +19,31 @@ class Node < Hash
 		end
 	end
 
-	
+#    def key
+#      keys[0]
+#    end
+#
+#    def key= k
+#      self[k] ||= nil
+#    end
+#
+#    def value
+#      values[0]
+#    end
+#
+#    def value= v
+#      if size>0
+#        self[0] ||= v
+#      end
+#    end
 
+    # если передаается цифра, то возвращается хэш по этой позиции
 	def [](pos)
 		return super(pos) if pos.class != Fixnum
 		{keys[pos] => values[pos]}
 	end
 
+    #  если передаается цифра, то установка хэша на позицию
 	def []=(pos, hash)
 		return super(pos, hash) if pos.class != Fixnum
 		t = self.clone
@@ -54,8 +72,10 @@ class Node < Hash
 		self
 	end
 
+    # плюсиком тоже можно вводить хэши
 	alias + add
 
+    # уставка хэша (все бывшие значения сбрасываются)
 	def set(hash)
 		clear
 		add(hash)

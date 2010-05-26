@@ -59,6 +59,16 @@ module ActiveTag
 				list
 			end
 
+            def find id
+               n = coll.find_one("_id" => id)
+               if n
+                 self.new(n)
+               else
+                 nil
+               end
+            end
+
+
 			def first
 				self.new(coll.find_one())
 			end
@@ -72,11 +82,11 @@ module ActiveTag
 		module InstanceMethods
 
 			def id
-				self[:_id]
+				self["_id"]
 			end
 
 			def id=(new_id)
-				self[:_id] = new_id
+				self["_id"] = new_id
 			end
 
 			alias :_id :id

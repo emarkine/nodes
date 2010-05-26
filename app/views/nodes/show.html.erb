@@ -1,4 +1,4 @@
-<h1><%= link_to  @node.name, :action => 'edit', :id => @node %></h1>
+<h1><%= link_to  "node[#{@node.id}]", :action => 'edit', :id => @node.id %></h1>
 <hr />
  <%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
 <hr />

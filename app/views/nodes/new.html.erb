@@ -3,6 +3,10 @@
 <% else %>
     <h1>New Node</h1>
 <% end %>
-<%= render :partial => 'form' %>
+<% form_tag '/nodes', :method => :post do %>
+    <%= text_field_tag :key %>
+    <%= text_field_tag :value %>
+     <%= submit_tag "Create" %>
+<% end %>
 <hr />
 <%= link_to "Nodes", :action => 'index' %>
