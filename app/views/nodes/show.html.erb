@@ -1,6 +1,11 @@
-<h1><%= link_to  "node[#{@node.id}]", :action => 'edit', :id => @node.id %></h1>
-<hr />
- <%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
-<hr />
+<h1><%= link_to "node[#{@node.id}]", :action => 'edit', :id => @node.id %></h1>
+<% for key in @node.keys %>
+    <p>
+    <%= key %>&nbsp;<%= @node[key] %>
+    </p>
+<% end %>
+<hr/>
+<%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
+<hr/>
 <%= link_to "Nodes", :action => 'index' %>
 
