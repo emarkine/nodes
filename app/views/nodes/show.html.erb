@@ -1,9 +1,16 @@
-<h1><%= link_to "node[#{@node.id}]", :action => 'edit', :id => @node.id %></h1>
+<h1><%= link_to @node.name, { :action => 'edit', :id => @node.id}, { :title => 'Edit Node'} %></h1>
+<div id="content">
 <% for key in @node.keys %>
-    <p>
-    <%= key %>&nbsp;<%= @node[key] %>
-    </p>
+      <div class="key line">
+        <%= key %>
+      </div>
+      <% unless @node[key].blank? %>
+          <div class="value">
+            <%= @node[key] %>
+          </div>
+      <% end %>
 <% end %>
+</div>
 <hr/>
 <%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
 <hr/>

@@ -27,8 +27,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
     color: #069;
 }
 
-.right {
-    text-align: right;
+hr {
+    clear: both;
 }
 
 pre {
@@ -52,6 +52,11 @@ h1 a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+.right {
+    text-align: right;
 }
 
 p.notice {
@@ -132,8 +137,22 @@ div#search {
     float: right;
 }
 
+div#toolbar {
+    border: 1px solid #767676;
+    background: #eee;
+    clear: both;
+    float: left;
+}
+
 div#body {
     clear: both;
+}
+
+div#content {
+    display: block;
+    float: left;
+    clear: both;
+    margin-bottom: 10px;
 }
 
 span#notice {
@@ -152,12 +171,7 @@ div.node {
 }
 
 div.node a {
-    float: left;
-    display: block;
-    border: 1px solid #767676;
-    height: 15px;
-    margin-right: 3px;
-    padding: 0px 5px 2px 5px;
+    color: #333;
 }
 
 div.node a:hover {
@@ -166,6 +180,39 @@ div.node a:hover {
     color: #333;
 }
 
+.key {
+    float: left;
+    background: #ddd;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #767676;
+    margin-right: 7px;
+}
+
+
+
+div.line {
+    clear: left;
+    margin-bottom: 5px;
+}
+
+div.value {
+    float: left;
+    background: #eee;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #767676;
+    margin-right: 7px;
+}
+
+div.tool  {
+    float: left;
+    border: 1px solid #eee;
+    background: #eee;
+}
+
+div.tool:hover {
+    border: 1px solid #767676;
+    background: #ddd;
+}
 
 /*
     background: #999;

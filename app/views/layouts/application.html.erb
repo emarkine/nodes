@@ -3,22 +3,11 @@
 <head>
  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
  <title>Nodes</title>
- <!--%= javascript_include_tag :defaults %-->
- <%= javascript_include_tag 'jquery/jquery' %>
- <%= javascript_include_tag 'jquery/ui.core' %>
- <%= javascript_include_tag 'jquery/ui.datepicker' %>
- <%= javascript_include_tag 'jquery/jquery.form' %>
- <%= javascript_include_tag 'jquery/jquery.metadata' %>
- <%= javascript_include_tag 'jquery/jquery.tablesorter' %>
- <%= javascript_include_tag 'jquery/jquery.dxCombobox' %>
- <%#= javascript_include_tag 'jquery/jquery.uploadProgress' %>
- <%#= javascript_include_tag 'jquery/i18n/jquery-ui-i18n' %>
- <%= javascript_include_tag 'jquery/jrails' %>
- <%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'jquery-ui' %>
+<%= javascript_include_tag 'jrails' %>
+<%= javascript_include_tag 'application' %>
 
- <%= stylesheet_link_tag 'jquery/ui.all' %>
- <%= stylesheet_link_tag 'jquery/sorter-blue' %>
- <%#= stylesheet_link_tag 'jquery/sorter-green' %>
  <%= stylesheet_link_tag 'style' %>
 
 </head>
@@ -33,6 +22,9 @@
  <div id="search">
   <%= render :partial => "layouts/search" %>
  </div>
+  <div id="toolbar">
+   <%= render :partial => "layouts/toolbar" %>
+  </div>
 </div>
 
 <div id="body">
@@ -45,9 +37,8 @@
  <span id="error"><%= flash[:error] %></span>
 </p>
 
-<div id="content">
+
 <%= yield %>
-</div>
 
 </div>
     

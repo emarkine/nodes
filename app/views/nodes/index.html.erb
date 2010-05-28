@@ -1,7 +1,17 @@
-<h1><%= link_to "Nodes", :action => 'new' %></h1>
+<h1><%= link_to "Nodes", {:action => 'new'}, { :title => 'Create New Node'} %></h1>
+<div id="content">
 
-<% for n in @nodes %>
-    <div class="node">
-     <%= link_to "node[#{n.id}]", :action => 'show', :id => n.id %>
-    </div>
-<% end %>
+  <% for n in @nodes %>
+      <div class="node">
+        <%= link_to n.name, {:action => 'show', :id => n.id}, {:class => 'key'} %>
+        <% for key in n.keys %>
+            <div class="key">
+              <%= key %>
+            </div>
+        <% end %>
+      </div>
+  <% end %>
+
+</div>
+
+<hr/>

@@ -19,6 +19,17 @@ class Node < Hash
 		end
 	end
 
+    def name
+      return self["name"] if has_key? "name"
+      "[#{id}]"
+    end
+
+    def keys
+      ks = super
+      ks.delete '_id'
+      ks
+    end
+
 #    def key
 #      keys[0]
 #    end
