@@ -82,7 +82,10 @@ function ajaxLinks(){
 }
 
 $(document).ready(function() {
-//    $("div.key").draggable();
+   $("div.key").draggable({
+        helper : 'clone',
+        opacity : 0.3
+   });
 
 // All non-GET requests will add the authenticity token
   // if not already present in the data packet
