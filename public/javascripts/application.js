@@ -84,8 +84,16 @@ function ajaxLinks(){
 $(document).ready(function() {
    $("div.key").draggable({
         helper : 'clone',
-        opacity : 0.3
+        opacity : 0.5
    });
+
+    $('div.trash').droppables({
+        tolerance : 'fit',
+        accept : 'div.key',
+        drop : function(event, ui) {
+                $(this).append(ui.draggable);
+        }
+});
 
 // All non-GET requests will add the authenticity token
   // if not already present in the data packet
