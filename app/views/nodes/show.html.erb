@@ -1,11 +1,11 @@
 <h1><%= link_to @node.name, { :action => 'edit', :id => @node.id}, { :title => 'Edit Node'} %></h1>
 <div id="content">
 <% for key in @node.keys %>
-      <div class="key line">
+      <div class="key line draggable">
         <%= key %>
       </div>
       <% unless @node[key].blank? %>
-          <div class="value">
+          <div class="value draggable">
             <%= @node[key] %>
           </div>
       <% end %>
