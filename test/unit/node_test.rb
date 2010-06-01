@@ -85,4 +85,32 @@ class NodeTest < ActiveSupport::TestCase
     assert_equal(n[0], {'a' => ['v1','v2', 'v3'] } )
   end
 
+  test "delete_value" do
+    n = Node.new( 'a' => 'v1')
+    n.delete_value 'a'
+    puts "delete_value: #{n}"
+    assert_equal(n[0], {'a' => nil } )
+  end
+
+  test "delete_value first" do
+    n = Node.new( 'a' => ['v1', 'v2', 'v3'] )
+    n.delete_value 'a', 0
+    puts "delete_value first: #{n}"
+    assert_equal(n[0], {'a' => ['v2','v3'] } )
+  end
+
+  test "delete_value last" do
+    n = Node.new( 'a' => ['v1', 'v2', 'v3'] )
+    n.delete_value 'a'
+    puts "delete_value last: #{n}"
+    assert_equal(n[0], {'a' => ['v1','v2'] } )
+  end
+
+  test "delete_value second" do
+    n = Node.new( 'a' => ['v1', 'v2', 'v3'] )
+    n.delete_value 'a', 1
+    puts "delete_value last: #{n}"
+    assert_equal(n[0], {'a' => ['v1','v3'] } )
+  end
+
 end

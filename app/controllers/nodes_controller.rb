@@ -114,10 +114,12 @@ class NodesController < ApplicationController
   def delete_value
     @node = Node.find params[:id]
     return error "can't find node with id: #{params[:id]}" unless @node
-    value = params[:key]
+    key = params[:key]
     return error "no key param" unless key
     return error "no key '#{key}' found" unless @node.key? key
-    @node.delete key
+    index = params[:index]
+    return error "no value index" unless index
+    @node.delete_value key, index.to_i
     return error "can't save node" if !@node.save
     render :json => @node
   end

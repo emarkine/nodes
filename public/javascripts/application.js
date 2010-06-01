@@ -26,6 +26,7 @@ jQuery.fn.elementlocation = function() {
 };
 
 jQuery.fn.id = function() {
+    var obj = this;
     var node = this.parent();
     return node.attr('id');
 };
@@ -48,38 +49,6 @@ jQuery.fn.drag = function() {
 // все div с классом draggable можно будет такскать туда-сюда
 $(function() {
     $("div.draggable").drag();
-});
-
-// определям выброс в корзинку
-$(function() {
-    $('div#trash').droppable({
-        tolerance : 'touch',
-        accept : 'div.draggable',
-        drop : function(event, ui) {
-            $("#error").html('');
-            var elm = $(ui.draggable);
-            if (elm.hasClass('key-container')) {
-                var key = elm.children().first().text().trim();
-                $.getJSON("/nodes/delete_key", { id: elm.id(), key: key }, function(data) {
-                    if (!data.error) {
-                        elm.remove();
-                    } else {
-                        $("#error").html(data.error);
-                    }
-                });
-            }
-            if (elm.hasClass('value')) {
-                alert("delete key");
-                $.getJSON("/nodes/delete_value", { id: elm.id(), text: elm.text().trim() }, function(data) {
-                    if (!data.error) {
-                        elm.remove();
-                    } else {
-                        $("#error").html(data.error);
-                    }
-                });
-            }
-        }
-    });
 });
 
 
@@ -153,6 +122,42 @@ jQuery.fn.add_values = function() {
         }
     });
 }
+
+// определям выброс в корзинку
+$(function() {
+    $('div#trash').droppable({
+        tolerance : 'touch',
+        accept : 'div.draggable',
+        drop : function(event, ui) {
+            $("#error").html('');
+            var elm = $(ui.draggable);
+            if (elm.hasClass('key-container')) {
+                var key = elm.children().first().text().trim();
+                $.getJSON("/nodes/delete_key", { id: elm.id(), key: key }, function(data) {
+                    if (!data.error) {
+                        elm.remove();
+                    } else {
+                        $("#error").html(data.error);
+                    }
+                });
+            }
+            if (elm.hasClass('value')) {
+                var index = elm.attr('index');
+                var container = elm.parent();
+                var key = container.attr('key');
+                var id = container.parent().attr('id');
+                $.getJSON("/nodes/delete_value", { id: id, key: key, index: index }, function(data) {
+                    if (!data.error) {
+                        elm.remove();
+                    } else {
+                        $("#error").html(data.error);
+                    }
+                });
+            }
+        }
+    });
+});
+
 
 
 $(document).ready(function() {

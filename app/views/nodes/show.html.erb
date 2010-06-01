@@ -4,15 +4,17 @@
 
   <div class="node editor" id="<%= @node.id %>">
     <% for key in @node.vkeys %>
-        <div class="key-container line draggable" <%= "key=#{key}" %>>
+        <div class="key-container line draggable" key="<%= key %>">
           <div class="key">
             <%= key %>
           </div>
           <% unless @node[key].blank? %>
+              <% index = 0 %>
               <% for value in @node.vs(key) %>
-                  <div class="value draggable">
+                  <div class="value draggable" index="<%= index %>">
                     <%= value %>
                   </div>
+                  <% index += 1 %>
               <% end %>
           <% end %>
         </div>

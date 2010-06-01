@@ -31,13 +31,16 @@ class Node < Hash
     vkeys
   end
 
+  # список всех значений в виде массива
   def vs(key = nil)
     return super.values unless key
+    return [] unless self[key] # у нас нет значения
     unless self[key].kind_of? Array # у нас есть уже значение, но оно одно и не в массиве
       return [] << self[key]
     end
     return self[key]
   end
+
   # добавляем значение в конец
   def add_value(key, value)
     return self[key] = value unless self[key] # если такого значения нет - то просто добавляем его без заморочек
@@ -49,23 +52,16 @@ class Node < Hash
     self[key] << value # добавляем значение в конец массива
   end
 
-#    def key
-#      keys[0]
-#    end
-#
-#    def key= k
-#      self[k] ||= nil
-#    end
-#
-#    def value
-#      values[0]
-#    end
-#
-#    def value= v
-#      if size>0
-#        self[0] ||= v
-#      end
-#    end
+  # удаление значения на позиции index
+  def delete_value(key,  index=nil)
+    vs = self.vs key  # берем массив значений
+    return self if vs.empty? # не из чего удалять
+    index = vs.size-1 unless index # если не передана позиция, то устанавливаем ее в конец
+    vs.delete_at index # удаляем значени
+    return self[key] = nil if vs.empty? # если пусто, то чистим
+    return self[key] = vs[0] if vs.size == 1 # если один элемент, то убираем массив
+    return self[key] = vs # иначе все оставляем как есть
+  end
 
   # если передаается цифра, то возвращается хэш по этой позиции
   def [](pos)
