@@ -101,11 +101,11 @@ $(function() {
 
 $(function() {
     $('div#trash').droppable({
-        tolerance : 'fit',
+//        tolerance : 'fit',
         accept : 'div.draggable',
         drop : function(event, ui) {
-            alert("hollo drop!");
-            $(this).append(ui.draggable);
+  //          alert("hollo drop!");
+ //           $(this).append(ui.draggable);
         }
     });
 });

@@ -7,7 +7,6 @@ html, body {
     height: 100%;
 }
 
-
 table, td {
     border: 0;
     padding: 0;
@@ -22,7 +21,6 @@ body, p, ol, ul, td {
     background-color: #fff;
     color: #333;
 }
-
 
 h1, h2, h3, h4, h5 {
     color: #690;
@@ -234,7 +232,65 @@ div.tool:hover {
     background: #ddd;
 }
 
+/* скругление углов */
+.r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8, .r9, .r10  {
+    display: block;
+    font-size: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
+.r10 {
+    margin: 0 10px;
+}
+
+.r9 {
+    margin: 0 9px;
+}
+
+.r8 {
+    margin: 0 8px;
+}
+
+.r7 {
+    margin: 0 7px;
+}
+
+.r6 {
+    margin: 0 6px;
+}
+
+.r5 {
+    margin: 0 5px;
+}
+
+.r4 {
+    margin: 0 4px;
+}
+
+.r3 {
+    margin: 0 3px;
+}
+
+.r2 {
+    margin: 0 2px;
+}
+
+.r1 {
+    margin: 0 1px;
+}
+
+#content .editor, #content  b {
+    background-color: #ace2f2;
+}
+
+div.editor {
+    padding: 5px 30px 15px 5px;
+}
+
 /*
+    padding: 5px 30px 15px 5px;
     background: #999;
     background: #909;
     background: #099;

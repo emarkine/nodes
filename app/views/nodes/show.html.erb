@@ -1,15 +1,20 @@
-<h1><%= link_to @node.name, { :action => 'edit', :id => @node.id}, { :title => 'Edit Node'} %></h1>
 <div id="content">
-<% for key in @node.keys %>
-      <div class="key line draggable">
-        <%= key %>
-      </div>
-      <% unless @node[key].blank? %>
-          <div class="value draggable">
-            <%= @node[key] %>
-          </div>
-      <% end %>
-<% end %>
+  <b class="r5" ></b><b class="r3"></b><b class="r2"></b>
+  <b class="r1"></b><b class="r1"></b>
+   <div class="node editor">
+    <% for key in @node.keys %>
+        <div class="key line draggable">
+          <%= key %>
+        </div>
+        <% unless @node[key].blank? %>
+            <div class="value draggable">
+              <%= @node[key] %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+  <b class="r1"></b><b class="r1"></b>
+  <b class="r2"></b><b class="r3"></b><b class="r5"></b>
 </div>
 <hr/>
 <%= link_to "New", :action => 'new' %> | <%= link_to "Clone", :action => 'new', :id => @node %>
