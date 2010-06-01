@@ -208,8 +208,8 @@ div.node a:hover {
     margin-right: 7px;
 }
 
-div.line {
-    clear: left;
+.line {
+    clear: both;
     margin-bottom: 5px;
 }
 

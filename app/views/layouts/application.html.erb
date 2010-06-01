@@ -40,7 +40,13 @@
 
 <%= yield %>
 
+  <p>x:<span id="x-debug"></span></p>
+  <p>y:<span id="y-debug"></span></p>
+  <p>width:<span id="width-debug"></span></p>
+  <p>height:<span id="height-debug"></span></p>
+
 </div>
+
 
 <div id="trash"  class="ui-draggable">
   <%= image_tag "trash-empty.png", :id=>"tool-trash", :title => "Trash" %>

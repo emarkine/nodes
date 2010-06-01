@@ -5,8 +5,7 @@ class NodesController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @node = Node.find id.to_i
+    @node = Node.find params[:id]
     unless @node
       flash[:error] = "Cant find node with id => #{params[:id]}"
       redirect_to :action => :index
@@ -62,6 +61,15 @@ class NodesController < ApplicationController
     @node = Node.find params[:id]
     @node.destroy
     redirect_to :action => 'index'
+  end
+
+
+  def add_key
+    @node = Node.find params[:id]
+    if @node && params[:text]
+      @node[params[:text]] ||= nil
+      @node.save
+    end
   end
 
 

@@ -1,8 +1,8 @@
 <div id="content">
   <b class="r5" ></b><b class="r3"></b><b class="r2"></b>
   <b class="r1"></b><b class="r1"></b>
-   <div class="node editor">
-    <% for key in @node.keys %>
+   <div class="node editor" id="<%= @node.id %>" >
+    <% for key in @node.vkeys %>
         <div class="key line draggable">
           <%= key %>
         </div>

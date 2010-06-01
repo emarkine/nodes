@@ -60,6 +60,7 @@ module ActiveTag
 			end
 
             def find id
+              id = id.to_i if id.kind_of? String
                n = coll.find_one("_id" => id)
                if n
                  self.new(n)

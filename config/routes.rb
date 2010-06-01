@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
 
 	map.connect '', :controller => 'nodes', :action => 'index'
+    map.connect 'nodes/add_key', :controller => 'nodes', :action => 'add_key'
 
 	map.resources :nodes
 	
