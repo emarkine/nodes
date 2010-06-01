@@ -1,16 +1,21 @@
 <div id="content">
-  <b class="r5" ></b><b class="r3"></b><b class="r2"></b>
+  <b class="r5"></b><b class="r3"></b><b class="r2"></b>
   <b class="r1"></b><b class="r1"></b>
-   <div class="node editor" id="<%= @node.id %>" >
+
+  <div class="node editor" id="<%= @node.id %>">
     <% for key in @node.vkeys %>
-        <div class="key line draggable">
-          <%= key %>
+        <div class="key-container line draggable" <%= "key=#{key}" %>>
+          <div class="key">
+            <%= key %>
+          </div>
+          <% unless @node[key].blank? %>
+              <% for value in @node.vs(key) %>
+                  <div class="value draggable">
+                    <%= value %>
+                  </div>
+              <% end %>
+          <% end %>
         </div>
-        <% unless @node[key].blank? %>
-            <div class="value draggable">
-              <%= @node[key] %>
-            </div>
-        <% end %>
     <% end %>
   </div>
   <b class="r1"></b><b class="r1"></b>

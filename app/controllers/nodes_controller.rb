@@ -64,13 +64,62 @@ class NodesController < ApplicationController
   end
 
 
-  def add_key
-    @node = Node.find params[:id]
-    if @node && params[:text]
-      @node[params[:text]] ||= nil
-      @node.save
-    end
+#  def add_key
+#    @node = Node.find params[:id]
+#    @node.add params[:text]
+#    return render :json => "OK" if @node.save
+#  end
+
+  def error(msg=nil)
+    msg = 'error' unless msg
+    ret = {"error" => msg}
+    render :json => ret
   end
 
+  def add_key
+    @node = Node.find params[:id]
+    return error "can't find node with id: #{params[:id]}" unless @node
+    key = params[:key]
+    return error "no key param" unless key
+    return error "the key '#{key}' already exist" if @node.key? key
+    @node.add key
+    return error "can't save node" if !@node.save
+    render :json => @node
+  end
+
+  def delete_key
+    @node = Node.find params[:id]
+    return error "can't find node with id: #{params[:id]}" unless @node
+    key = params[:key]
+    return error "no text param" unless key
+    return error "no key '#{key}' found" unless @node.key? key
+    @node.delete key
+    return error "can't save node" if !@node.save
+    render :json => @node
+  end
+
+  def add_value
+    @node = Node.find params[:id]
+    return error "can't find node with id: #{params[:id]}" unless @node
+    key = params[:key]
+    return error "no key param" unless key
+    return error "no key '#{key}' found" unless @node.key? key
+    value = params[:value]
+    return error "no value param" unless value
+    @node.add_value key, value
+    return error "can't save node" if !@node.save
+    render :json => @node
+  end
+
+  def delete_value
+    @node = Node.find params[:id]
+    return error "can't find node with id: #{params[:id]}" unless @node
+    value = params[:key]
+    return error "no key param" unless key
+    return error "no key '#{key}' found" unless @node.key? key
+    @node.delete key
+    return error "can't save node" if !@node.save
+    render :json => @node
+  end
 
 end

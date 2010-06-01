@@ -25,11 +25,29 @@ class Node < Hash
     "[#{id}]"
   end
 
-    def vkeys
-      vkeys = keys
-      vkeys.delete '_id'
-      vkeys
+  def vkeys
+    vkeys = keys
+    vkeys.delete '_id'
+    vkeys
+  end
+
+  def vs(key = nil)
+    return super.values unless key
+    unless self[key].kind_of? Array # у нас есть уже значение, но оно одно и не в массиве
+      return [] << self[key]
     end
+    return self[key]
+  end
+  # добавляем значение в конец
+  def add_value(key, value)
+    return self[key] = value unless self[key] # если такого значения нет - то просто добавляем его без заморочек
+    unless self[key].kind_of? Array # у нас есть уже значение, но оно одно и не в массиве
+      v = self[key]   # сохраняем значение
+      self[key] = []  # создаем массив
+      self[key] << v  # добавляем значени
+    end
+    self[key] << value # добавляем значение в конец массива
+  end
 
 #    def key
 #      keys[0]

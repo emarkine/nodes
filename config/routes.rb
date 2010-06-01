@@ -3,6 +3,9 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.connect '', :controller => 'nodes', :action => 'index'
     map.connect 'nodes/add_key', :controller => 'nodes', :action => 'add_key'
+    map.connect 'nodes/add_value', :controller => 'nodes', :action => 'add_value'
+    map.connect 'nodes/delete_key', :controller => 'nodes', :action => 'delete_key'
+    map.connect 'nodes/delete_value', :controller => 'nodes', :action => 'delete_value'
 
 	map.resources :nodes
 	

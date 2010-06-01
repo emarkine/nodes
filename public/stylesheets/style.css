@@ -208,6 +208,11 @@ div.node a:hover {
     margin-right: 7px;
 }
 
+div.key-container {
+    padding-bottom: 23px;
+    padding-right: 10px;
+}
+
 .line {
     clear: both;
     margin-bottom: 5px;
@@ -215,10 +220,14 @@ div.node a:hover {
 
 div.value {
     float: left;
-    background: #eee;
+    background: #f3f3f3;
     padding: 2px 5px 2px 5px;
     border: 1px solid #767676;
     margin-right: 7px;
+}
+
+div#add-value-div {
+    float: left;
 }
 
 div.tool {
@@ -286,7 +295,7 @@ div.tool:hover {
 }
 
 div.editor {
-    padding: 5px 30px 15px 5px;
+    padding: 5px 5px 15px 5px;
 }
 
 /*

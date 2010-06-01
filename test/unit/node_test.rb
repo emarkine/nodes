@@ -64,4 +64,25 @@ class NodeTest < ActiveSupport::TestCase
     assert_equal(n[2], {'c' => 3})
   end
 
+  test "add_value" do
+    n = Node.new( 'a')
+    n.add_value 'a', 'v'
+    puts "add_value: #{n}"
+    assert_equal(n[0], {'a' => 'v'})
+  end
+
+  test "add_value by" do
+    n = Node.new( 'a' => 'v1')
+    n.add_value 'a', 'v2'
+    puts "add_value: #{n}"
+    assert_equal(n[0], {'a' => ['v1','v2'] } )
+  end
+
+  test "add_value in array" do
+    n = Node.new( 'a' => ['v1', 'v2'] )
+    n.add_value 'a', 'v3'
+    puts "add_value in array: #{n}"
+    assert_equal(n[0], {'a' => ['v1','v2', 'v3'] } )
+  end
+
 end
