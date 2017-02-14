@@ -1,7 +1,29 @@
+# Ignore OS directory tmp files
+.directory 
+**/.directory
 .DS_Store
 **/.DS_Store
-log/*
-tmp/*
-tmp/**/*
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+.sass-cache
+
+
+# Ignore lock files
+Gemfile.lock
+~lock.*
+
+
+# Ignore RubyMine files
 .idea
-.svn
+
+pkg/
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal
+test/dummy/log/*.log
+test/dummy/tmp/
+
