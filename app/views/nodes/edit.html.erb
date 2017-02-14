@@ -1,7 +1,0 @@
-<h1><%= link_to @node.name, @node, {
-        :method => :delete,
-        :confirm => "Are you sure to delete '#{@node.name}'&nbsp;?",
-        :title => "Delete '#{@node.name}'" } %></h1>
-<%= render :partial => 'form' %>
-<hr />
-<%= link_to "Nodes", :action => 'index' %>
