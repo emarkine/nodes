@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Nodes::Engine => "/nodes"
+  mount Nodes::Engine => '/nodes'
 end
