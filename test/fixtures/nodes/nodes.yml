@@ -1,3 +1,9 @@
+nodes/thursday-is-nodes-day:
+  title: nodes/thursday-is-nodes-day
+  name: Четверг - это день узлов
+  date: 2017-05-18
+  file: nodes/thursday-is-nodes-day.txt
+
 nodes/motivation:
   title: nodes/motivation
   name: Motivation
