@@ -34,7 +34,10 @@ namespace :db do
         model_file = "#{Rails.root}/test/fixtures/#{model_name.pluralize}.yml"
         File.delete(model_file) if File.exists?(model_file)
         File.open(model_file, 'w') do |file|
-           model.all.each do |item|
+          items = model.all
+          #item = items[0]
+          #puts dump(item,args[:excluded])
+          items.each do |item|
             file.puts dump(item, args[:excluded])
             file.puts "\n"
           end
@@ -44,6 +47,50 @@ namespace :db do
         puts "Usage: rake #{task}[model]"
       end
     end
+
+    desc 'Dump model into test/fixtures (argument:[model]) [Old Version]'
+    task :dump_old, [:model] => :environment do |task, args|
+      if args[:model]
+        model_name = args[:model]
+        model = model_name.split("/").map { |c| c.capitalize }.join("::").constantize
+        entries = model.find(:all, :order => 'id ASC')
+        formatted, increment, tab = '', 1, '  '
+        entries.each do |a|
+          formatted += model_name + '_' + increment.to_s + ':' + "\n"
+          increment += 1
+          a.attributes.each do |column, value|
+            formatted += tab
+            value = value.to_s
+            if value.match(/\n/) || value.match(/"/)
+              formatted += column + ': |' + "\n"
+              value.gsub!(/\r\n?/, "\n")
+              value.split("\n").each do |v|
+                formatted += tab + tab + v.strip + "\n"
+              end
+              formatted.chop!
+            else
+              formatted += column + ': '
+              unless value.blank?
+                if value.index(":") || value.index("_") || value.index("[") || value.index("]") || value.index("<") || value.index(">")
+                  formatted += '"' + value + '"'
+                else
+                  formatted += value
+                end
+              end
+            end
+            formatted += "\n"
+          end
+          formatted += "\n"
+        end
+        model_file = "#{Rails.root}/test/fixtures/#{model_name.pluralize}.yml"
+        File.delete(model_file) if File.exists?(model_file)
+        File.open(model_file, 'w') { |f| f << formatted }
+        puts "Model #{model} dumped into test/fixtures/#{model_name.pluralize}.yml for #{Rails.env} environment."
+      else
+        puts "Usage: rake #{task}[model]"
+      end
+    end
+
 
     def correct_attributes(model_name)
       model = model_name.split("/").map { |c| c.capitalize }.join("::").constantize
@@ -119,8 +166,8 @@ namespace :db do
     desc 'Migrate down and then up the model (argument:[model])'
     task :redo, [:model] => :environment do |task, args|
       if args[:model]
-        Rake::Task['model:down'].invoke args[:model]
-        Rake::Task['model:up'].invoke args[:model]
+        Rake::Task['db:model:down'].invoke args[:model]
+        Rake::Task['db:model:up'].invoke args[:model]
       else
         puts "Usage: rake #{task}[model]"
       end
@@ -129,9 +176,9 @@ namespace :db do
     desc 'Reset the model: dump, migrate down, then up and load (argument:[model])'
     task :reset, [:model] => :environment do |task, args|
       if args[:model]
-        Rake::Task['model:dump'].invoke args[:model]
-        Rake::Task['model:redo'].invoke args[:model]
-        Rake::Task['model:load'].invoke args[:model]
+        Rake::Task['db:model:dump'].invoke args[:model]
+        Rake::Task['db:model:redo'].invoke args[:model]
+        Rake::Task['db:model:load'].invoke args[:model]
       else
         puts "Usage: rake #{task}[model]"
       end
