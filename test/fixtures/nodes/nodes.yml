@@ -1,11 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+nodes/motivation:
+  title: nodes/motivation
+  name: Motivation
+  date: 2017-05-21
+  file: /home/eugene/space/nodes/doc/motivation.txt
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+nodes/description/hash:
+  title: nodes/description/hash
+  name: Hash
+  date: 2017-05-22
+  file: /home/eugene/space/nodes/doc/description/hash.txt
+
+nodes/description/one-man-system:
+  title: nodes/description/one-man-system
+  name: One Man System
+  date: 2017-05-22
+  file: /home/eugene/space/nodes/doc/description/one-man-system.txt
+
+nodes/description/tags:
+  title: nodes/description/tags
+  name: Tags
+  date: 2017-05-22
+  file: /home/eugene/space/nodes/doc/description/tags.txt
+
+#:
+#  title:
+#  name:
+#  date: 2017-05-2
+#  file:
