@@ -15,4 +15,14 @@ gemspec
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
+end
+
+
+group :test do
+  gem 'database_cleaner'
+  gem 'hpricot'
+  gem 'html2haml'
+  gem 'watir-rspec'
 end
