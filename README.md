@@ -3,13 +3,10 @@ Short description and motivation.
 
 ## Usage
 To work with single model use such tasks.
+
 Dump rails model Name into file spec/fixtures/names.yml  
 ```bash
 $ rails db:model:dump[name]
-```
-Load from file spec/fixtures/names.yml to model Name 
-```bash
-$ rails db:model:load[name]
 ```
 Load from file spec/fixtures/names.yml to model Name 
 ```bash
