@@ -2,6 +2,7 @@ require 'active_record/fixtures'
 
 namespace :db do
   namespace :model do
+    PATH = 'spec/fixtures'
 
     def dump(item, excluded = nil)
       object_id = "#{item.class.name.downcase}_#{item.id}:\n" # compose unique id
@@ -25,30 +26,39 @@ namespace :db do
       object_id + list.join("\n")
     end
 
-    desc 'Dump model into test/fixtures (argument:[model,"exclude1,exclude2,..."])'
+    def simple_dump(item)
+      s = "#{item.class.name.downcase}_#{item.id}:\n" # compose unique id
+      item.attributes.each do |column, value|
+        s += "  #{column}: #{value}\n"
+      end
+      s
+    end
+
+    desc 'Dump model into fixtures (argument:[model,"exclude1,exclude2,..."])'
     task :dump, [:model, :excluded] => :environment do |task, args|
       if args[:model]
         model_name = args[:model]
         # model_name = model_name.split('/').map{|c| c.capitalize}.join('::')
         model = model_name.classify.constantize
-        model_file = "#{Rails.root}/test/fixtures/#{model_name.pluralize}.yml"
+        model_file = "#{Rails.root}/#{PATH}/#{model_name.pluralize}.yml"
         File.delete(model_file) if File.exists?(model_file)
         File.open(model_file, 'w') do |file|
           items = model.all
           #item = items[0]
           #puts dump(item,args[:excluded])
           items.each do |item|
-            file.puts dump(item, args[:excluded])
+            # file.puts dump(item, args[:excluded])
+            file.puts simple_dump(item)
             file.puts "\n"
           end
         end
-        puts "Model #{model} dumped into test/fixtures/#{model_name.pluralize}.yml for #{Rails.env} environment."
+        puts "Model #{model} dumped into #{PATH}/#{model_name.pluralize}.yml for #{Rails.env} environment."
       else
         puts "Usage: rake #{task}[model]"
       end
     end
 
-    desc 'Dump model into test/fixtures (argument:[model]) [Old Version]'
+    desc 'Dump model into fixtures (argument:[model]) [Old Version]'
     task :dump_old, [:model] => :environment do |task, args|
       if args[:model]
         model_name = args[:model]
@@ -82,10 +92,10 @@ namespace :db do
           end
           formatted += "\n"
         end
-        model_file = "#{Rails.root}/test/fixtures/#{model_name.pluralize}.yml"
+        model_file = "#{Rails.root}/#{PATH}/#{model_name.pluralize}.yml"
         File.delete(model_file) if File.exists?(model_file)
         File.open(model_file, 'w') { |f| f << formatted }
-        puts "Model #{model} dumped into test/fixtures/#{model_name.pluralize}.yml for #{Rails.env} environment."
+        puts "Model #{model} dumped into #{PATH}/#{model_name.pluralize}.yml for #{Rails.env} environment."
       else
         puts "Usage: rake #{task}[model]"
       end
@@ -114,18 +124,18 @@ namespace :db do
       end
     end
 
-    desc 'Load from test/fixtures into model (argument:[model])'
+    desc 'Load from fixtures into model (argument:[model])'
     task :load, [:model] => :environment do |task, args|
       if args[:model]
         fixtures = args[:model].downcase.pluralize
         # system("echo *")
-        system("rake db:fixtures:load FIXTURES=#{fixtures}")
+        system("rake db:fixtures:load FIXTURES=#{fixtures} FIXTURES_PATH=#{PATH}")
         # Rake::Task["db:fixtures:load"].invoke "FIXTURES=#{fixtures}"
         # Rake::Task["db:fixtures:load FIXTURES=#{fixtures}"].invoke
         # ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Rails.env])
         # ActiveRecord::Fixtures.create_fixtures("test/fixtures", fixtures)
         #correct_attributes(args[:model])
-        # puts "Fixture test/fixtures/#{fixtures}.yml loaded into model #{args[:model].capitalize} for #{Rails.env} environment."
+        puts "Fixture #{PATH}/#{fixtures}.yml loaded into model #{args[:model].capitalize} for #{Rails.env} environment."
       else
         puts "Usage: rake #{task}[model]"
       end
