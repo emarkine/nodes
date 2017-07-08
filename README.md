@@ -2,7 +2,7 @@
 Short description and motivation.
 
 ## Usage
-To work with single model use such tasks.
+To work with single model use the following tasks.
 
 Dump rails model Name into file spec/fixtures/names.yml  
 ```bash
