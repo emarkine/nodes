@@ -2,33 +2,7 @@
 Short description and motivation.
 
 ## Usage
-To work with single model use the following tasks.
-
-Dump rails model Name into file spec/fixtures/names.yml  
-```bash
-$ rails db:model:dump[name]
-```
-Load from file spec/fixtures/names.yml to model Name 
-```bash
-$ rails db:model:load[name]
-```
-Migrate model Name down 
-```bash
-$ rails db:model:down[name]
-```
-Migrate model Name up 
-```bash
-$ rails db:model:up[name]
-```
-Migrate down and then up 
-```bash
-$ rails db:model:redo[name]
-```
-Reset model: dump, migrate down, then up and load 
-```bash
-$ rails db:model:reset[name]
-```
-
+How to use my plugin.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -39,7 +13,7 @@ gem 'nodes'
 
 And then execute:
 ```bash
-$ bundle install
+$ bundle
 ```
 
 Or install it yourself as:
