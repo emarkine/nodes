@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title Nodes
+    = stylesheet_link_tag 'nodes/nodes'
+    = javascript_include_tag 'nodes/nodes'
+    = csrf_meta_tags
+
+  %body
+    .flash
+      .notice= flash[:notice]
+      .alert= flash[:alert]
+
+    = yield

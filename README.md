@@ -19,6 +19,7 @@ gem 'nodes'
 And then execute:
 ```bash
 $ bundle
+$ rails nodes:install:migrations
 ```
 
 Or install it yourself as:

@@ -1,9 +1,10 @@
 module TestHelpers
   module Features
-    URL = 'localhost:3001'
+    URL = 'localhost:3000/nodes'
     def login
-      user = User.find_by_name 'Test'
-      login_user(user, 'password')
+      # user = User.find_by_name 'Test'
+      # login_user(user, 'password')
+      goto "#{URL}/nodes"
     end
     def login_user(user, password)
       goto "#{URL}/login"

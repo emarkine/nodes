@@ -1,0 +1,12 @@
+$border: #ddd;
+
+table.list {
+  float: left;
+  clear: both;
+  margin-left: 2px;
+  margin-right: 20px;
+  td, th {
+    padding: 2px 4px 2px 4px;
+    border: 1px $border solid;
+  }
+}
