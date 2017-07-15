@@ -37,11 +37,9 @@ table {
   }
 }
 
-img {
-  border: 0px;
-}
-
 a {
+  float: left;
+  border: 0px;
   text-decoration: none;
   color: $nodes-text-color;
   font-weight: bold;
@@ -59,4 +57,9 @@ table.nodes-list {
     padding: 2px 4px 2px 4px;
     border: 1px $nodes-table-border solid;
   }
+}
+
+a.nodes-action {
+  width: 20px;
+  height: 20px;
 }

@@ -1,6 +1,7 @@
 en:
   nodes: nodes
   add_new_node: add new node
+  sort_by_name: sort by name
 
   activerecord:
     models:

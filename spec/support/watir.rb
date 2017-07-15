@@ -38,6 +38,6 @@ RSpec.configure do |config|
   #
   # You can also use #during to test if something stays the same during the specified period:
   #   expect(@browser.text_field(name: "first_name")).to exist.during(2)
-  config.include Watir::RSpec::Matchers, type: :feature
+  # config.include Watir::RSpec::Matchers, type: :feature
 end
 
