@@ -8,7 +8,9 @@ module Nodes
       g.helper false
     end
     initializer 'nodes.assets.precompile' do |app|
-      app.config.assets.precompile += %w( nodes/nodes.coffee nodes/nodes.scss nodes/create.png )
+      app.config.assets.precompile +=
+          %w( nodes/nodes.coffee nodes/nodes.scss
+            nodes/create.png nodes/favicon.ico)
     end
   end
 end

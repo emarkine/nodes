@@ -1,0 +1,12 @@
+ru:
+  nodes: nodes
+  add_new_node: добавить новый узел
+
+  activerecord:
+    models:
+      nodes/node:
+        one: узел
+        other: узлы
+    attributes:
+      nodes/node:
+        name: имя

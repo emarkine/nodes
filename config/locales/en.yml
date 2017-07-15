@@ -1,33 +1,12 @@
 en:
-  login: login
-  logout: logout
-  profile: profile
-  register: register
-  login_success: Login successful
-  login_failed: Login failed
-  logged_out: Logged out
-  not_authenticated: Please login first
   nodes: nodes
+  add_new_node: add new node
 
   activerecord:
     models:
-      nodes:
+      nodes/node:
         one: node
         other: nodes
-      user:
-        one: user
-        other: users
     attributes:
-      node:
+      nodes/node:
         name: name
-      user:
-        email: email
-        password: password
-        password_confirmation: confirmation
-        name: Full Name
-        mobile: mobile
-        birthday: birthday
-        site: site
-        currency: currency
-        currency_id: currency
-        balance: balance

@@ -1,13 +1,15 @@
 %h1= t(:nodes)
-%table{:class => 'list'}
-  %tr
-    -#%th{colspan: 3}=link_to image_tag('nodes/create.png'), new_node_path, :title => t(:add_new,:model=>Node.model_name.human)
-  %tr
-    -#%th= link_to Node.human_attribute_name(:date), :action => :sort, :field => :date
-    %th= link_to Nodes::Node.human_attribute_name(:name), :action => :sort, :field => :name
-    -#%th= link_to Entry.human_attribute_name(:tags), :action => :sort, :field => :tag_list
-  - @nodes.each do |node|
+%table{class: 'nodes-list'}
+  %thead
     %tr
+      %th{colspan: 3}=link_to image_tag('nodes/create.png'), new_node_path , :title => t(:add_new_node)
+    %tr
+      %th= link_to Nodes::Node.human_attribute_name(:name), :action => :sort, :field => :name
+    -#%th= link_to Node.human_attribute_name(:date), :action => :sort, :field => :date
+    -#%th= link_to Entry.human_attribute_name(:tags), :action => :sort, :field => :tag_list
+  %tbody
+    - @nodes.each do |node|
+      %tr
       -#%td= l(node.date, :format=>:long)
       %td= link_to node.name,  edit_node_path # "/entry/#{entry.title}"
       -#%td
