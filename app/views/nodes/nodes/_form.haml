@@ -1,13 +1,4 @@
-= form_for @node do |f|
-  - if @node.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@node.errors.count, "error")} prohibited this node from being saved:"
-      %ul
-        - @node.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit 'Save'
+= form_for @node, :html => {:class => 'node-form'} do |f|
+  - form_error @node
+  .field= f.text_field :name
+  .actions= image_submit_tag('nodes/save.png', :title => t(:save_node) )

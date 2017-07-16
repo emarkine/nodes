@@ -1,5 +1,3 @@
-%h1 New node
-
+%h1= t(:new_node)
 = render 'form'
-
-= link_to 'Back', nodes_path
+.back= link_to t(:nodes), nodes_path

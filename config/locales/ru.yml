@@ -2,6 +2,9 @@ ru:
   nodes: nodes
   add_new_node: добавить новый узел
   sort_by_name: отсортировать по имени
+  new_node: новый узел
+  save_node: сохранить узел
+  error_save: этот узел не может быть сохранен из-за ошибок
 
   activerecord:
     models:

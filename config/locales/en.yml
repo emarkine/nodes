@@ -2,6 +2,9 @@ en:
   nodes: nodes
   add_new_node: add new node
   sort_by_name: sort by name
+  new_node: new node
+  save_node: save node
+  error_save: this node can not be saved due errors
 
   activerecord:
     models:

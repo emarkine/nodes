@@ -20,6 +20,18 @@ RSpec.feature 'Nodes management: ', type: :feature do
     expect(image).to be_present
     expect(image.src).to end_with '.png'
     expect(image.width).to eq 20
+    # the list is empty
+    expect(table.tbody.rows.size).to eq 0
+  end
+
+  scenario 'Create nodes' do
+    expect(create = a(class: 'nodes-action')).to be_present
+    create.click
+    wait
+    expect(url).to end_with 'nodes/new'
+    expect(save = div(class: 'actions')).to be_present
+    save.click
+    wait
   end
 
   end
