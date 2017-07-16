@@ -1,9 +1,28 @@
-%p#notice= notice
+.node
+  %h1= link_to @node.name, edit_node_path(@node)
+.back= link_to t(:nodes), nodes_path
 
-%p
-  %b Name:
-  = @node.name
+-#.entry
+  - if @entry
+    .date= l(@entry.date, :format=>:long)
+    .tags
+      - @entry.tags.each do |tag|
+        =link_to tag, tag_path(tag)
+    - if @entry.author
+      .author= @entry.author
+    .title
+      - if User.logged?(session)
+        %h1= link_to @entry.name, edit_entry_path(@entry)
+      - else
+        %h1= @entry.name
+    .text= @entry.format.html_safe
+    -#.text= @entry.html
+  - else
+    .text No entry
+  .user
+    = link_to @entry.user.name, @entry.user
+  .email
+    = mail_to @entry.user.email
 
-= link_to 'Edit', edit_node_path(@node)
-\|
-= link_to 'Back', nodes_path
+
+-#.line= link_to Entry::Entry.model_name.human.pluralize, entries_path

@@ -22,7 +22,7 @@ module Nodes
       @node = Node.new(node_params)
 
       if @node.save
-        redirect_to @node, notice: 'Node was successfully created.'
+        redirect_to @node, notice: I18n.t(:node_was_created)
       else
         render :new
       end
@@ -30,7 +30,7 @@ module Nodes
 
     def update
       if @node.update(node_params)
-        redirect_to @node, notice: 'Node was successfully updated.'
+        redirect_to @node, notice: I18n.t(:node_was_updated)
       else
         render :edit
       end
@@ -38,7 +38,7 @@ module Nodes
 
     def destroy
       @node.destroy
-      redirect_to nodes_url, notice: 'Node was successfully destroyed.'
+      redirect_to nodes_url, notice: I18n.t(:node_was_destroyed)
     end
 
     private

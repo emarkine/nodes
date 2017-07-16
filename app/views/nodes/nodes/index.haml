@@ -13,7 +13,7 @@
     - @nodes.each do |node|
       %tr
       -#%td= l(node.date, :format=>:long)
-      %td= link_to node.name,  edit_node_path # "/entry/#{entry.title}"
+      %td= link_to node.name,  node # "/entry/#{entry.title}"
       -#%td
       -#  - entry.tags.each do |tag|
       -#    =link_to tag, tag_path(tag)

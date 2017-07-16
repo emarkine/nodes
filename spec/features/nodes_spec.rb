@@ -24,7 +24,7 @@ RSpec.feature 'Nodes management: ', type: :feature do
     expect(table.tbody.rows.size).to eq 0
   end
 
-  scenario 'Create nodes' do
+  scenario 'Create node' do
     expect(create = a(class: 'nodes-action')).to be_present
     create.click
     wait
@@ -32,6 +32,11 @@ RSpec.feature 'Nodes management: ', type: :feature do
     expect(save = div(class: 'actions')).to be_present
     save.click
     wait
+    expect(error = div(id: 'error_explanation').text).to have_text I18n.t(:error_save)
+    text_field(id: 'node_name').set '1'
+    save.click
+    wait
+    expect(div(id: 'notice').text).to have_text I18n.t(:node_was_created)
   end
 
   end

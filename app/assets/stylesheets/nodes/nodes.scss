@@ -1,6 +1,8 @@
 $nodes-font-size: 13px;
 $nodes-text-color: #555;
 $nodes-error-color: #a55;
+$nodes-notice-color: #5a5;
+$nodes-alert-color: #a55;
 $nodes-table-border: #ddd;
 $nodes-field-size: 800px;
 $nodes-text-height: 600px;
@@ -19,6 +21,30 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0;
+}
+h1 {
+  float: left;
+  clear: both;
+  font-weight: bold;
+  font-size: 26px;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+h2 {
+  float: left;
+  clear: both;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+h3 {
+  float: left;
+  clear: both;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0 0 0;
   padding: 0;
 }
 
@@ -51,6 +77,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.flash {
+  float: left;
+  clear: both;
+  #notice {
+    color: $nodes-notice-color;
+  }
+  #alert {
+    color: $nodes-alert-color;
+  }
+}
+
 
 .back {
   float: left;
@@ -133,9 +171,7 @@ a.nodes-action {
 .node {
   float: left;
   clear: both;
-  margin-left: 10px;
-  margin-right: 20px;
-  margin-bottom: 50px;
+  margin: 0px;
   a {
     color: $nodes-text-color;
     text-decoration: none;
@@ -143,30 +179,6 @@ a.nodes-action {
   }
   a:hover {
     text-decoration: underline;
-  }
-  h1 {
-    float: left;
-    clear: both;
-    font-weight: bold;
-    font-size: 26px;
-    margin: 10px 0 0 0;
-    padding: 0;
-  }
-  h2 {
-    float: left;
-    clear: both;
-    font-weight: bold;
-    font-size: 22px;
-    margin: 10px 0 0 0;
-    padding: 0;
-  }
-  h3 {
-    float: left;
-    clear: both;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px 0 0 0;
-    padding: 0;
   }
   .date {
     float: left;

@@ -3,8 +3,12 @@ ru:
   add_new_node: добавить новый узел
   sort_by_name: отсортировать по имени
   new_node: новый узел
+  edit_node: редактироване узла
   save_node: сохранить узел
   error_save: этот узел не может быть сохранен из-за ошибок
+  node_was_created: узел был успешно создан
+  node_was_updated: узел был успешно обновлен
+  node_was_destroyed: узел был успешно удален
 
   activerecord:
     models:

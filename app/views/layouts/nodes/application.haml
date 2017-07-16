@@ -9,8 +9,10 @@
 
   %body
     .flash
-      .notice= flash[:notice]
-      .alert= flash[:alert]
+      - if flash[:notice]
+        #notice= flash[:notice]
+      - if flash[:alert]
+        #alert= flash[:alert]
 
     -#%div{style: 'position:relative;height:0;padding-bottom:80.21%'}
       %iframe{ src: "https://www.youtube.com/embed/2Oy2LVaGPGE?ecver=2",

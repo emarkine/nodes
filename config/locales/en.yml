@@ -3,8 +3,12 @@ en:
   add_new_node: add new node
   sort_by_name: sort by name
   new_node: new node
+  edit_node: editing node
   save_node: save node
   error_save: this node can not be saved due errors
+  node_was_created: node was successfully created
+  node_was_updated: node was successfully updated
+  node_was_destroyed: node was successfully destroyed
 
   activerecord:
     models:

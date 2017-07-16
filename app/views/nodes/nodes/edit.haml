@@ -1,7 +1,4 @@
-%h1 Editing node
-
+%h1= t(:edit_node)
 = render 'form'
-
-= link_to 'Show', @node
-\|
-= link_to 'Back', nodes_path
+-#.back= link_to @node.name,  @node
+.back= link_to t(:nodes), nodes_path
