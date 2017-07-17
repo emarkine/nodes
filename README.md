@@ -21,6 +21,11 @@ And then execute:
 $ bundle
 $ rails nodes:install:migrations
 ```
+Add to you config/routes
+```ruby
+mount Nodes::Engine => '/nodes'
+```
+
 
 Or install it yourself as:
 ```bash
