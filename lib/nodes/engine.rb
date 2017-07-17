@@ -1,10 +1,11 @@
 module Nodes
   class Engine < ::Rails::Engine
     isolate_namespace Nodes
-    # routes.draw do
-    #   root to: 'nodes#index'
-    #   # mount Common::Engine => '/'
-    # end
+    routes.draw do
+      resources :nodes
+      # root to: 'nodes#index'
+      # mount Common::Engine => '/'
+    end
     config.generators do |g|
       g.test_framework :rspec, :fixture => false
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
