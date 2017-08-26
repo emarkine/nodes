@@ -15,5 +15,10 @@ module Nodes
     it 'is invalid without a name' do
       expect(build(:nodes_node, name: nil)).not_to be_valid
     end
+
+    it 'is invalid without a date' do
+      expect(build(:nodes_node, date: nil)).not_to be_valid
+    end
+
   end
 end

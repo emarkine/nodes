@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# Copyright 2017 EugeneLab   
+
+require 'socket'
+addr_infos = Socket.getifaddrs
+addr_infos.each do |addr_info|
+    if addr_info.addr
+        puts "#{addr_info.name}: #{addr_info.addr.ip_address}" if addr_info.addr.ipv4?
+    end
+end
