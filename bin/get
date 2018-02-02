@@ -1,0 +1,20 @@
+#!/bin/bash                                                                                                                             
+# Copyright 2015-2018 EugeneLab
+# 
+# get
+# 
+# Downloading files from the server using ssh configuration in the same directory on the local machine.
+# 
+# Usage:
+# get
+
+
+dir=`pwd`
+remote="$USER:$dir/*"
+local=$dir
+
+echo "local: $local"
+echo "remote: $remote"
+
+rsync -zuthvr --del --exclude=.*  --progress  $remote $local 
+
